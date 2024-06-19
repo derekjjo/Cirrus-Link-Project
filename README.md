@@ -10,7 +10,7 @@ This project showcases the design and implementation of an IoT-based system usin
 ![img.png](images/ESP8266.png)
 
 2. **Java Resource Event Generator**: An event generator that connects to a public MQTT broker, subscribes to a topic where random integers are published every second, and processes the received messages by generating resource events.
-3. **Java Resource Event Handler**: Subscribes to the MQTT topic, processes the received events, and supports encoding, filtering, and logging functionalities. Handled events are printed to console and logged in file events.txt.
+3. **Java Resource Event Handler**: Processes the received events, and supports encoding, filtering, and logging functionalities. Handled events are printed to console and logged in file events.txt.
 
 ![img.png](images/img.png)
 
