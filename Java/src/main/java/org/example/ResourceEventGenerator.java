@@ -81,9 +81,16 @@ public class ResourceEventGenerator {
 
     public static void main(String[] args) {
         ErrorLoggingConfiguration.configure();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the filter name: ");
+        String filterName = scanner.nextLine();
+
         ResourceEventGenerator generator = new ResourceEventGenerator();
-        ResourceEventHandler handler = new ResourceEventHandler();
+        ResourceEventHandler handler = new ResourceEventHandler(filterName);
         generator.registerHandler(handler);
         generator.start();
+
+        scanner.close();
     }
 }

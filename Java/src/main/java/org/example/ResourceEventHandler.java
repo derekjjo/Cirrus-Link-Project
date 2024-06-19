@@ -10,17 +10,22 @@ import java.util.logging.Logger;
 public class ResourceEventHandler implements EventHandlerInterface {
     private static final String LOG_FILE_PATH = "events.txt";
     private static final Logger errorLOGGER = Logger.getLogger(ResourceEventHandler.class.getName());
+    private String filterName;
+
+    public ResourceEventHandler(String filterName) {
+        this.filterName = filterName;
+    }
 
     @Override
     public void handleEvent(Map<String, Object> resource) {
-        if (filterEvent(resource)) {
+        if (filterName(resource)) {
             logEvent(encodeEvent(resource));
         }
     }
 
-    private boolean filterEvent(Map<String, Object> resource) {
-        // Example: Filter by name and datatype
-        return "TestResource".equals(resource.get("name")) && "int".equals(resource.get("datatype"));
+    private boolean filterName(Map<String, Object> resource) {
+        // Filter by the supplied name
+        return filterName.equals(resource.get("name"));
     }
 
     private String encodeEvent(Map<String, Object> resource) {
